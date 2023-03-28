@@ -12,7 +12,7 @@ console.log(props.project)
   <div class="project-container">
     <div class="project-container__left">
       <a href="#" class="project-avatar">
-          <img v-if="project.avatatar_url" :src="project.avatar_url" alt="avatar" srcset="">
+          <img v-if="project.avatar_url" :src="project.avatar_url" alt="avatar" srcset="">
          <div v-if="!project.avatar_url">{{ project.name.at(0) }}</div>
         </a>
       <div class="project-main">

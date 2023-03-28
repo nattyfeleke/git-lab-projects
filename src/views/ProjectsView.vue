@@ -1,35 +1,15 @@
 <script setup>
+import {ref, onMounted,computed} from 'vue'
+import { useStore } from 'vuex'
+
 import Project from "../components/Project.vue";
-const project =   {
-        "id": 44685220,
-        "description": "My awesome project",
-        "name": "pipelines-for-merge-trains-a4fcee278294c60f",
-        "name_with_namespace": "gitlab-qa-sandbox-group-3 / qa-test-2023-03-28-06-12-53-bb036287ee8164bc / pipelines-for-merge-trains-a4fcee278294c60f",
-        "path": "pipelines-for-merge-trains-a4fcee278294c60f",
-        "path_with_namespace": "gitlab-qa-sandbox-group-3/qa-test-2023-03-28-06-12-53-bb036287ee8164bc/pipelines-for-merge-trains-a4fcee278294c60f",
-        "created_at": "2023-03-28T06:19:13.056Z",
-        "default_branch": "main",
-        "tag_list": [],
-        "topics": [],
-        "ssh_url_to_repo": "git@gitlab.com:gitlab-qa-sandbox-group-3/qa-test-2023-03-28-06-12-53-bb036287ee8164bc/pipelines-for-merge-trains-a4fcee278294c60f.git",
-        "http_url_to_repo": "https://gitlab.com/gitlab-qa-sandbox-group-3/qa-test-2023-03-28-06-12-53-bb036287ee8164bc/pipelines-for-merge-trains-a4fcee278294c60f.git",
-        "web_url": "https://gitlab.com/gitlab-qa-sandbox-group-3/qa-test-2023-03-28-06-12-53-bb036287ee8164bc/pipelines-for-merge-trains-a4fcee278294c60f",
-        "readme_url": null,
-        "forks_count": 0,
-        "avatar_url": null,
-        "star_count": 0,
-        "last_activity_at": "2023-03-28T06:19:13.056Z",
-        "namespace": {
-            "id": 65599028,
-            "name": "qa-test-2023-03-28-06-12-53-bb036287ee8164bc",
-            "path": "qa-test-2023-03-28-06-12-53-bb036287ee8164bc",
-            "kind": "group",
-            "full_path": "gitlab-qa-sandbox-group-3/qa-test-2023-03-28-06-12-53-bb036287ee8164bc",
-            "parent_id": 53328385,
-            "avatar_url": null,
-            "web_url": "https://gitlab.com/groups/gitlab-qa-sandbox-group-3/qa-test-2023-03-28-06-12-53-bb036287ee8164bc"
-        }
-    }
+
+const store = useStore();
+const projects = computed(() => store.state.projects)
+
+    onMounted(()=>{
+      store.dispatch('getProjects')
+    })
 
 </script>
 <template>
@@ -55,7 +35,8 @@ const project =   {
       >
     </nav>
   </div>
-  <Project :project="project" />
+  <Project v-for="project in projects" :project="project" :key="project.id" />
+ 
   </section>
  
 </template>
