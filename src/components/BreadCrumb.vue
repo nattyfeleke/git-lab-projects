@@ -5,8 +5,14 @@ import { ChevronRightIcon } from "@heroicons/vue/20/solid";
 </script>
 
 <template>
+  <section class="px-6">
+
+ 
   <div class="flex items-center gap-x-1 border-b border-gray-400 py-3">
-    <a href="#"> <h1 class="text-sm leading-6 text-gray-400">Explore</h1></a>
+  
+
+      <a href="#"> <h1 class="text-sm leading-6 text-gray-400">Explore</h1></a>
+  
 
     <ChevronRightIcon
       class="h-5 w-5 flex-none text-gray-400"
@@ -17,7 +23,7 @@ import { ChevronRightIcon } from "@heroicons/vue/20/solid";
         Projects
       </h1></RouterLink
     >
-  </div>
+  </div> </section>
 </template>
 
 

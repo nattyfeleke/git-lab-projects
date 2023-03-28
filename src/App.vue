@@ -1,11 +1,11 @@
 <script setup>
-import { RouterLink, RouterView } from "vue-router";
+import {  RouterView } from "vue-router";
 import Header from "./components/Header.vue";
 import BreadCrumb from "./components/BreadCrumb.vue";
 </script>
 
 <template>
-  <main class="m-4">
+  <main>
     <Header />
     <BreadCrumb />
     <RouterView />
