@@ -6,7 +6,6 @@
         required: true
     }
 });
-console.log(props.project)
 </script>
 <template>
   <div class="project-container">
@@ -90,6 +89,11 @@ console.log(props.project)
   border: 1px solid #1f1e2414;
   border-radius: 0.5rem;
   background-color: #ecf4ee;
+}
+.project-avatar img{
+  max-width: 3rem;
+  padding: 4px;
+  
 }
 .project-avatar div{
   width: 100%;

@@ -3,10 +3,12 @@ import {ref, onMounted,computed} from 'vue'
 import { useStore } from 'vuex'
 
 import Project from "../components/Project.vue";
-
 const store = useStore();
-const projects = computed(() => store.state.projects)
 
+const projects = computed(() => store.state.projects)
+console.log(projects)
+const status = computed(() => store.state.status);
+console.log(status)
     onMounted(()=>{
       store.dispatch('getProjects')
     })
@@ -35,6 +37,7 @@ const projects = computed(() => store.state.projects)
       >
     </nav>
   </div>
+  <!-- <img  src="../assets/Spinner.gif" alt="" srcset=""> -->
   <Project v-for="project in projects" :project="project" :key="project.id" />
  
   </section>
